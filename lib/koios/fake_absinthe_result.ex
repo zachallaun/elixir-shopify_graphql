@@ -1,4 +1,4 @@
-defmodule ShopifyGraphQL.FakeAbsintheResult do
+defmodule Koios.FakeAbsintheResult do
   # https://elixirforum.com/t/validation-only-pipeline-for-absinthe/28491/3
   @moduledoc false
 

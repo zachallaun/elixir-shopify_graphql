@@ -1,12 +1,11 @@
-defmodule ShopifyGraphQL do
+defmodule Koios do
   @moduledoc """
-  Client for Shopify GraphQL endpoints, including compile-time validation against Shopify GraphQL
-  schemas.
+  General-purpose GraphQL client with compile-time validation against a schema.
 
   ### Usage
 
       defmodule Example do
-        use ShopifyGraphQL, api: "admin/2022-07"
+        use Koios, sdl: "schemas/shopify-admin/2022-07.graphql"
 
         def example do
           ~Q\"""
@@ -20,19 +19,18 @@ defmodule ShopifyGraphQL do
               }
             }
           \"""
-          |> shopify()
         end
       end
   """
 
-  alias ShopifyGraphQL.Schema
+  alias Koios.Schema
 
   defmacro __using__(opts) do
     schema = resolve_schema(opts)
 
     quote do
-      import ShopifyGraphQL
-      @__shopifygraphql_schema__ unquote(schema)
+      import Koios
+      @__koios_schema__ unquote(schema)
     end
   end
 
@@ -43,7 +41,7 @@ defmodule ShopifyGraphQL do
 
   defmacro sigil_Q({:<<>>, _, [string]}, []) do
     __CALLER__.module
-    |> Module.get_attribute(:__shopifygraphql_schema__)
+    |> Module.get_attribute(:__koios_schema__)
     |> Schema.validate!(string)
 
     to_validated_query(string)
@@ -52,8 +50,8 @@ defmodule ShopifyGraphQL do
   defp to_validated_query(string) do
     quote do
       %{
-        __struct__: ShopifyGraphQL.Query,
-        schema: @__shopifygraphql_schema__,
+        __struct__: Koios.Query,
+        schema: @__koios_schema__,
         query: unquote(string)
       }
     end

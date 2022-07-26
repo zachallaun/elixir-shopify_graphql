@@ -1,3 +1,3 @@
-defmodule ShopifyGraphQL.Query do
+defmodule Koios.Query do
   defstruct [:schema, :query]
 end

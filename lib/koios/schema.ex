@@ -1,4 +1,4 @@
-defmodule ShopifyGraphQL.Schema do
+defmodule Koios.Schema do
   @moduledoc false
 
   defmodule ValidationError do
@@ -14,7 +14,7 @@ defmodule ShopifyGraphQL.Schema do
       import_sdl(path: unquote(path))
 
       def hydrate(%Absinthe.Blueprint.Schema.InterfaceTypeDefinition{}, _ancestors) do
-        {:resolve_type, &ShopifyGraphQL.Schema.interface_resolve_type/2}
+        {:resolve_type, &Koios.Schema.interface_resolve_type/2}
       end
 
       def hydrate(_node, _ancestors) do
@@ -38,7 +38,7 @@ defmodule ShopifyGraphQL.Schema do
       |> Absinthe.Pipeline.without(Absinthe.Phase.Document.Execution.Resolution)
       |> Absinthe.Pipeline.insert_before(
         Absinthe.Phase.Document.Result,
-        ShopifyGraphQL.FakeAbsintheResult
+        Koios.FakeAbsintheResult
       )
 
     case Absinthe.Pipeline.run(doc, pipeline) do
