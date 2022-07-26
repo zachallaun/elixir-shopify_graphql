@@ -1,13 +1,7 @@
 defmodule Koios.Schema do
   @moduledoc false
 
-  defmodule ValidationError do
-    defexception [:message]
-  end
-
-  defmacro __using__(opts) do
-    path = Keyword.fetch!(opts, :path)
-
+  defmacro __using__(from_sdl: path) do
     quote generated: true, location: :keep do
       use Absinthe.Schema
 
@@ -17,7 +11,7 @@ defmodule Koios.Schema do
         {:resolve_type, &Koios.Schema.interface_resolve_type/2}
       end
 
-      def hydrate(_node, _ancestors) do
+      def hydrate(node, _ancestors) do
         []
       end
     end
@@ -51,7 +45,7 @@ defmodule Koios.Schema do
   def validate!(schema, doc) do
     case validate(schema, doc) do
       {:ok, []} -> :ok
-      {:error, error} -> raise ValidationError, message: inspect(error)
+      {:error, errors} -> raise Absinthe.Schema.Error, phase_errors: errors
     end
   end
 end

@@ -5,7 +5,7 @@ defmodule Koios do
   ### Usage
 
       defmodule Example do
-        use Koios, sdl: "schemas/shopify-admin/2022-07.graphql"
+        use Koios, schema: Example.Schema
 
         def example do
           ~Q\"""
@@ -21,22 +21,23 @@ defmodule Koios do
           \"""
         end
       end
+
+      defmodule Example.Schema do
+        use Koios.Schema, from_sdl: "schemas/shopify-admin/2022-07.graphql"
+      end
   """
 
   alias Koios.Schema
 
-  defmacro __using__(opts) do
-    schema = resolve_schema(opts)
-
+  defmacro __using__(schema: schema) do
     quote do
       import Koios
+
       @__koios_schema__ unquote(schema)
+      def __koios_schema__, do: @__koios_schema__
     end
   end
 
-  @doc """
-
-  """
   defmacro sigil_Q(query_string, modifiers)
 
   defmacro sigil_Q({:<<>>, _, [string]}, []) do
@@ -54,13 +55,6 @@ defmodule Koios do
         schema: @__koios_schema__,
         query: unquote(string)
       }
-    end
-  end
-
-  defp resolve_schema(opts) do
-    case opts[:api] do
-      "admin/2022-07" -> Schema.Admin202207
-      other -> raise "Unknown schema: #{inspect(other)}"
     end
   end
 end
