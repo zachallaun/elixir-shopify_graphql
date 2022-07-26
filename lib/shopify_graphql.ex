@@ -2,25 +2,67 @@ defmodule ShopifyGraphQL do
   @moduledoc """
   Client for Shopify GraphQL endpoints, including compile-time validation against Shopify GraphQL
   schemas.
+
+  ### Usage
+
+      defmodule Example do
+        use ShopifyGraphQL, api: "admin/2022-07"
+
+        def example do
+          ~Q\"""
+            {
+              orders(first: 10) {
+                edges {
+                  node {
+                    id
+                  }
+                }
+              }
+            }
+          \"""
+          |> shopify()
+        end
+      end
   """
 
-  def validate(doc) do
-    pipeline =
-      ShopifyGraphQL.Schema
-      |> Absinthe.Pipeline.for_document()
-      |> Absinthe.Pipeline.without(Absinthe.Phase.Subscription.SubscribeSelf)
-      |> Absinthe.Pipeline.without(Absinthe.Phase.Document.Execution.Resolution)
-      |> Absinthe.Pipeline.insert_before(Absinthe.Phase.Document.Result, __MODULE__)
+  alias ShopifyGraphQL.Schema
 
-    case Absinthe.Pipeline.run(doc, pipeline) do
-      {:ok, %{execution: %{validation_errors: []}}, _} -> {:ok, []}
-      {:ok, %{execution: %{validation_errors: errors}}, _} -> {:error, errors}
-      other -> {:error, other}
+  defmacro __using__(opts) do
+    schema = resolve_schema(opts)
+
+    quote do
+      import ShopifyGraphQL
+      @__shopifygraphql_schema__ unquote(schema)
     end
   end
 
-  def run(blueprint, _) do
-    blueprint = put_in(blueprint.execution.result, %{value: nil})
-    {:ok, blueprint}
+  @doc """
+
+  """
+  defmacro sigil_Q(query_string, modifiers)
+
+  defmacro sigil_Q({:<<>>, _, [string]}, []) do
+    __CALLER__.module
+    |> Module.get_attribute(:__shopifygraphql_schema__)
+    |> Schema.validate!(string)
+
+    to_validated_query(string)
+  end
+
+  defp to_validated_query(string) do
+    quote do
+      %{
+        __struct__: ShopifyGraphQL.Query,
+        schema: @__shopifygraphql_schema__,
+        query: unquote(string)
+      }
+    end
+  end
+
+  defp resolve_schema(opts) do
+    case opts[:api] do
+      "admin/2022-07" -> Schema.Admin202207
+      other -> raise "Unknown schema: #{inspect(other)}"
+    end
   end
 end

@@ -517,10 +517,10 @@ type AppPurchaseOneTimeCreatePayload {
   appPurchaseOneTime: AppPurchaseOneTime
   """
   The URL that the merchant can access to approve or decline the newly created app one-time purchase.
-  
+
   If the merchant declines, then the merchant is redirected to the app and receives a notification message stating that the charge was declined.
   If the merchant approves and they're successfully invoiced, then the state of the charge changes from `pending` to `active`.
-  
+
   You get paid after the charge is activated.
   """
   confirmationUrl: URL
@@ -1098,10 +1098,10 @@ type CalculatedDraftOrderLineItem {
   discountedUnitPrice: MoneyV2!
   """
   Name of the service provider who fulfilled the order.
-  
+
   Valid values are either **manual** or the name of the provider.
   For example, **amazon**, **shipwire**.
-  
+
   Deleted fulfillment services will return null.
   """
   fulfillmentService: FulfillmentService
@@ -1291,7 +1291,7 @@ type CalculatedOrder implements Node {
     """
     Supported filter parameters:
      - `editable`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -1525,9 +1525,9 @@ type Collection implements HasMetafieldDefinitions & HasMetafields & HasPublishe
   feedback: ResourceFeedback
   """
   A unique string that identifies the collection. If a handle isn't specified when a collection is created, it's automatically generated from the collection's original title, and typically includes words from the title separated by hyphens. For example, a collection that was created with the title `Summer Catalog 2022` might have the handle `summer-catalog-2022`.
-  
+
   If the title is changed, the handle doesn't automatically change.
-  
+
   The handle can be used in themes by the Liquid templating language to refer to the collection, but using the ID is preferred because it never changes.
   """
   handle: String!
@@ -1574,7 +1574,7 @@ type Collection implements HasMetafieldDefinitions & HasMetafields & HasPublishe
      - `namespace`
      - `owner_type`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -1716,7 +1716,7 @@ type Collection implements HasMetafieldDefinitions & HasMetafields & HasPublishe
   sortOrder: CollectionSortOrder!
   """
   The Storefront GraphQL API ID of the `Collection`.
-  
+
   As of the `2022-04` version release, the Storefront GraphQL API will no longer return Base64 encoded IDs to match the behavior of the Admin GraphQL API. Therefore, you can safely use the `id` field's value instead.
   """
   storefrontId: StorefrontID! @deprecated(reason: "Use `id` instead")
@@ -2080,7 +2080,7 @@ type Customer implements CommentEventSubject & HasEvents & HasMetafieldDefinitio
   averageOrderAmountV2: MoneyV2
   """
   Whether the merchant can delete the customer from their store.
-  
+
   A customer can be deleted from a store only if they have not yet made an order. After a customer makes an
   order, they can't be deleted from a store.
   """
@@ -2121,7 +2121,7 @@ type Customer implements CommentEventSubject & HasEvents & HasMetafieldDefinitio
      - `created_at`
      - `subject_type`
      - `verb`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -2143,7 +2143,7 @@ type Customer implements CommentEventSubject & HasEvents & HasMetafieldDefinitio
   legacyResourceId: UnsignedInt64!
   """
   The amount of time since the customer was first added to the store.
-  
+
   Example: 'about 12 years'.
   """
   lifetimeDuration: String!
@@ -2154,7 +2154,7 @@ type Customer implements CommentEventSubject & HasEvents & HasMetafieldDefinitio
   """
   The marketing subscription opt-in level, as described by the M3AAWG best practices guidelines, that the
   customer gave when they consented to receive marketing material by email.
-  
+
   If the customer does not accept email marketing, then this property is `null`.
   """
   marketingOptInLevel: CustomerMarketingOptInLevel @deprecated(reason: "Use `emailMarketingConsent` instead")
@@ -2190,7 +2190,7 @@ type Customer implements CommentEventSubject & HasEvents & HasMetafieldDefinitio
      - `namespace`
      - `owner_type`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -2265,7 +2265,7 @@ type Customer implements CommentEventSubject & HasEvents & HasMetafieldDefinitio
      - `tag_not`
      - `test`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -2314,7 +2314,7 @@ type Customer implements CommentEventSubject & HasEvents & HasMetafieldDefinitio
   productSubscriberStatus: CustomerProductSubscriberStatus!
   """
   The current SMS marketing state for the customer's phone number.
-  
+
   If the customer does not have a phone number, then this property is `null`.
   """
   smsMarketingConsent: CustomerSmsMarketingConsentState
@@ -2347,7 +2347,7 @@ type Customer implements CommentEventSubject & HasEvents & HasMetafieldDefinitio
   updatedAt: DateTime!
   """
   Whether the email address is formatted correctly.
-  
+
   Returns `true` when the email is formatted correctly and
   belongs to an existing domain. This doesn't guarantee that
   the email address actually exists.
@@ -3140,7 +3140,7 @@ type DeliveryLocationGroup implements Node {
      - `name`
      - `province`
      - `zip`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -3656,7 +3656,7 @@ type DiscountAutomaticBxgy implements HasEvents & Node {
      - `created_at`
      - `subject_type`
      - `verb`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -3751,7 +3751,7 @@ type DiscountAutomaticNode implements HasEvents & HasMetafieldDefinitions & HasM
      - `created_at`
      - `subject_type`
      - `verb`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -3791,7 +3791,7 @@ type DiscountAutomaticNode implements HasEvents & HasMetafieldDefinitions & HasM
      - `namespace`
      - `owner_type`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -3891,7 +3891,7 @@ type DiscountCodeApp {
     """
     Supported filter parameters:
      - `times_used`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -3997,7 +3997,7 @@ type DiscountCodeBasic {
     """
     Supported filter parameters:
      - `times_used`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -4104,7 +4104,7 @@ type DiscountCodeBxgy {
     """
     Supported filter parameters:
      - `times_used`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -4206,7 +4206,7 @@ type DiscountCodeFreeShipping {
     """
     Supported filter parameters:
      - `times_used`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -4293,7 +4293,7 @@ type DiscountCodeNode implements HasEvents & HasMetafieldDefinitions & HasMetafi
      - `created_at`
      - `subject_type`
      - `verb`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -4333,7 +4333,7 @@ type DiscountCodeNode implements HasEvents & HasMetafieldDefinitions & HasMetafi
      - `namespace`
      - `owner_type`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -4510,7 +4510,7 @@ type DiscountNode implements HasEvents & HasMetafieldDefinitions & HasMetafields
      - `created_at`
      - `subject_type`
      - `verb`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -4550,7 +4550,7 @@ type DiscountNode implements HasEvents & HasMetafieldDefinitions & HasMetafields
      - `namespace`
      - `owner_type`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -4721,7 +4721,7 @@ type DiscountRedeemCodeBulkCreationCode {
   code: String!
   """
   The successfully created discount redeem code.
-  
+
   If the discount redeem code couldn't be created, then this field is `null``.
   """
   discountRedeemCode: DiscountRedeemCode
@@ -4896,7 +4896,7 @@ type DraftOrder implements CommentEventSubject & HasEvents & HasLocalizationExte
      - `created_at`
      - `subject_type`
      - `verb`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -5146,10 +5146,10 @@ type DraftOrderLineItem implements Node {
   discountedUnitPrice: Money!
   """
   Name of the service provider who fulfilled the order.
-  
+
   Valid values are either **manual** or the name of the provider.
   For example, **amazon**, **shipwire**.
-  
+
   Deleted fulfillment services will return null.
   """
   fulfillmentService: FulfillmentService
@@ -6369,7 +6369,7 @@ type Image implements HasMetafields {
   ): MetafieldConnection!
   """
   The location of the original image as a URL.
-  
+
   If there are any existing transformations in the original source URL, they will remain and not be stripped.
   """
   originalSrc: URL! @deprecated(reason: "Use `url` instead")
@@ -6399,7 +6399,7 @@ type Image implements HasMetafields {
   src: URL! @deprecated(reason: "Use `url` instead")
   """
   The location of the transformed image as a URL.
-  
+
   All transformation arguments are considered "best-effort". If they can be applied to an image, they will be.
   Otherwise any transformations which an image type does not support will be ignored.
   """
@@ -6417,11 +6417,11 @@ type Image implements HasMetafields {
   ): URL! @deprecated(reason: "Use `url(transform:)` instead")
   """
   The location of the image as a URL.
-  
+
   If no transform options are specified, then the original image will be preserved including any pre-applied transforms.
-  
+
   All transformation options are considered "best-effort". Any transformation that the original image type doesn't support will be ignored.
-  
+
   If you need multiple variations of the same image, then you can use [GraphQL aliases](https://graphql.org/learn/queries/#aliases).
   """
   url(
@@ -6550,7 +6550,7 @@ type InventoryItem implements LegacyInteroperability & Node {
      - `inventory_group_id`
      - `inventory_item_id`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -6703,7 +6703,7 @@ type LineItem implements Node {
   fulfillableQuantity: Int! @deprecated(reason: "Use [FulfillmentOrderLineItem#remainingQuantity](https://shopify.dev/api/admin-graphql/latest/objects/FulfillmentOrderLineItem#field-fulfillmentorderlineitem-remainingquantity) instead.")
   """
   The service provider that fulfills the line item.
-  
+
   Deleted fulfillment services will return null.
   """
   fulfillmentService: FulfillmentService @deprecated(reason: "Multi-managed inventory introduced a [breaking change](https://shopify.dev/api/release-notes/2022-07#shipping-and-fulfillment) to this field, therefore this field will no longer be supported. Fulfillment services will all be opted into SKU sharing in 2023-04. Use [FulfillmentOrder#assignedLocation](https://shopify.dev/api/admin-graphql/latest/objects/FulfillmentOrder#field-fulfillmentorder-assignedlocation) instead.")
@@ -6825,7 +6825,7 @@ type LineItemMutable implements Node {
   fulfillableQuantity: Int!
   """
   The service provider that fulfills the line item.
-  
+
   Deleted fulfillment services will return null.
   """
   fulfillmentService: FulfillmentService
@@ -7033,7 +7033,7 @@ type Location implements HasMetafieldDefinitions & LegacyInteroperability & Node
      - `inventory_group_id`
      - `inventory_item_id`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -7070,7 +7070,7 @@ type Location implements HasMetafieldDefinitions & LegacyInteroperability & Node
      - `namespace`
      - `owner_type`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -7190,13 +7190,13 @@ type MailingAddress implements Node {
   country: String
   """
   The two-letter code for the country of the address.
-  
+
   For example, US.
   """
   countryCode: String @deprecated(reason: "Use `countryCodeV2` instead")
   """
   The two-letter code for the country of the address.
-  
+
   For example, US.
   """
   countryCodeV2: CountryCode
@@ -7225,7 +7225,7 @@ type MailingAddress implements Node {
   name: String
   """
   A unique phone number for the customer.
-  
+
   Formatted using E.164 standard. For example, _+16135551111_.
   """
   phone: String
@@ -7233,7 +7233,7 @@ type MailingAddress implements Node {
   province: String
   """
   The two-letter code for the region.
-  
+
   For example, ON.
   """
   provinceCode: String
@@ -8406,7 +8406,7 @@ type Mutation {
   ): AppUsageRecordCreatePayload
   """
   Starts the cancelation process of a running bulk operation.
-  
+
   There may be a short delay from when a cancelation starts until the operation is actually canceled.
   """
   bulkOperationCancel(
@@ -8415,7 +8415,7 @@ type Mutation {
   ): BulkOperationCancelPayload
   """
   Creates and runs a bulk operation mutation.
-  
+
   To learn how to bulk import large volumes of data asynchronously, refer to the
   [bulk import data guide](https://shopify.dev/api/usage/bulk-operations/imports).
   """
@@ -8429,7 +8429,7 @@ type Mutation {
   ): BulkOperationRunMutationPayload
   """
   Creates and runs a bulk operation query.
-  
+
   See the [bulk operations guide](https://shopify.dev/api/usage/bulk-operations/imports) for more details.
   """
   bulkOperationRunQuery(
@@ -8540,7 +8540,7 @@ type Mutation {
   ): CustomerPaymentMethodCreditCardUpdatePayload
   """
   Returns a URL that allows the customer to update a specific payment method.
-  
+
   Currently, `customerPaymentMethodGetUpdateUrl` only supports Shop Pay.
   """
   customerPaymentMethodGetUpdateUrl(
@@ -8633,7 +8633,7 @@ type Mutation {
   ): CustomerUpdateDefaultAddressPayload
   """
   Creates a delegate access token.
-  
+
   To learn more about creating delegate access tokens, refer to
   [Delegate OAuth access tokens to subsystems]
   (https://shopify.dev/apps/auth/oauth/delegate-access-tokens).
@@ -8710,7 +8710,7 @@ type Mutation {
   discountAutomaticBulkDelete(
     """
     The search query for filtering automatic discounts to delete.
-    
+
     For more information on the list of supported fields and search syntax, refer to the [AutomaticDiscountNodes query section](https://shopify.dev/api/admin-graphql/latest/queries/automaticDiscountNodes#argument-automaticdiscountnodes-query).
     """
     search: String,
@@ -8776,7 +8776,7 @@ type Mutation {
   discountCodeBulkActivate(
     """
     The search query for filtering code discounts.
-    
+
     For more information on the list of supported fields and search syntax, refer to the [CodeDiscountNodes query section](https://shopify.dev/api/admin-graphql/latest/queries/codeDiscountNodes#argument-codediscountnodes-query).
     """
     search: String,
@@ -8791,7 +8791,7 @@ type Mutation {
   discountCodeBulkDeactivate(
     """
     The search query for filtering code discounts.
-    
+
     For more information on the list of supported fields and search syntax, refer to the [CodeDiscountNodes query section](https://shopify.dev/api/admin-graphql/latest/queries/codeDiscountNodes#argument-codediscountnodes-query).
     """
     search: String,
@@ -8806,7 +8806,7 @@ type Mutation {
   discountCodeBulkDelete(
     """
     The search query for filtering code discounts to delete.
-    
+
     For more information on the list of supported fields and search syntax, refer to the [CodeDiscountNodes query section](https://shopify.dev/api/admin-graphql/latest/queries/codeDiscountNodes#argument-codediscountnodes-query).
     """
     search: String,
@@ -9346,7 +9346,7 @@ type Mutation {
   ): MetafieldStorefrontVisibilityDeletePayload
   """
   Sets metafield values. Metafield values will be set regardless if they were previously created or not.
-  
+
   Allows a maximum of 25 metafields to be set at a time.
   """
   metafieldsSet(
@@ -9611,7 +9611,7 @@ type Mutation {
   """
   Creates or updates a private metafield. Use private metafields when you don't want the metafield data to be accessible by merchants or other apps.
   Private metafields are accessible only by the application that created them and only from the GraphQL Admin API.
-  
+
   An application can create a maximum of 10 private metafields per shop resource.
   """
   privateMetafieldUpsert(
@@ -10028,7 +10028,7 @@ type Mutation {
   Creates staged upload targets for each input and is the first step in the upload process.
   The returned staged upload targets' url and parameters fields can be used to send a request
   to upload the file described in the corresponding input.
-  
+
   For more information on the upload process, please refer to
   [this page](https://shopify.dev/api/examples/product-media#uploading-media-to-shopify).
   """
@@ -10038,7 +10038,7 @@ type Mutation {
   ): StagedUploadsCreatePayload
   """
   Activates the specified standard metafield definition from its template.
-  
+
   Refer to the [list of standard metafield definition templates](https://shopify.dev/api/admin/graphql/reference/common-objects/standardMetafieldDefinitionTemplates#examples-Get_a_list_of_standard_metafield_definition_templates).
   """
   standardMetafieldDefinitionEnable(
@@ -10209,9 +10209,9 @@ type Mutation {
   """
   urlRedirectBulkDeleteAll: UrlRedirectBulkDeleteAllPayload
   """
-  Asynchronously delete [URLRedirect](https://shopify.dev/api/admin-graphql/latest/objects/UrlRedirect) 
+  Asynchronously delete [URLRedirect](https://shopify.dev/api/admin-graphql/latest/objects/UrlRedirect)
   objects in bulk by IDs.
-  Learn more about [URLRedirect](https://help.shopify.com/en/manual/online-store/menus-and-links/url-redirect) 
+  Learn more about [URLRedirect](https://help.shopify.com/en/manual/online-store/menus-and-links/url-redirect)
   objects.
   """
   urlRedirectBulkDeleteByIds(
@@ -10248,7 +10248,7 @@ type Mutation {
   ): UrlRedirectDeletePayload
   """
   Creates a [`UrlRedirectImport`](https://shopify.dev/api/admin-graphql/latest/objects/UrlRedirectImport) object.
-  
+
   After creating the `UrlRedirectImport` object, the `UrlRedirectImport` request can be performed using the [`urlRedirectImportSubmit`](https://shopify.dev/api/admin-graphql/latest/mutations/urlRedirectImportSubmit) mutation.
   """
   urlRedirectImportCreate(
@@ -10260,7 +10260,7 @@ type Mutation {
   ): UrlRedirectImportCreatePayload
   """
   Submits a `UrlRedirectImport` request to be processed.
-  
+
   The `UrlRedirectImport` request is first created with the [`urlRedirectImportCreate`](https://shopify.dev/api/admin-graphql/latest/mutations/urlRedirectImportCreate) mutation.
   """
   urlRedirectImportSubmit(
@@ -10407,7 +10407,7 @@ type Order implements CommentEventSubject & HasEvents & HasLocalizationExtension
     """
     Supported filter parameters:
      - `happened_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -10589,7 +10589,7 @@ type Order implements CommentEventSubject & HasEvents & HasLocalizationExtension
      - `created_at`
      - `subject_type`
      - `verb`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -10622,7 +10622,7 @@ type Order implements CommentEventSubject & HasEvents & HasLocalizationExtension
     Supported filter parameters:
      - `assigned_location_id`
      - `status`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -10731,7 +10731,7 @@ type Order implements CommentEventSubject & HasEvents & HasLocalizationExtension
      - `namespace`
      - `owner_type`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -11284,7 +11284,7 @@ type OrderRisk {
   display: Boolean!
   """
   The likelihood that an order is fraudulent, based on this order risk.
-  
+
   The level can be set by Shopify risk analysis or by an app.
   """
   level: OrderRiskLevel
@@ -11901,7 +11901,7 @@ type PriceRule implements CommentEventSubject & HasEvents & LegacyInteroperabili
     """
     Supported filter parameters:
      - `times_used`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -11939,7 +11939,7 @@ type PriceRule implements CommentEventSubject & HasEvents & LegacyInteroperabili
      - `created_at`
      - `subject_type`
      - `verb`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -12059,7 +12059,7 @@ type PriceRuleCustomerSelection {
      - `tag_not`
      - `total_spent`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -12437,7 +12437,7 @@ type Product implements HasMetafieldDefinitions & HasMetafields & HasPublishedTr
      - `published_status`
      - `title`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -12559,7 +12559,7 @@ type Product implements HasMetafieldDefinitions & HasMetafields & HasPublishedTr
      - `namespace`
      - `owner_type`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -12732,7 +12732,7 @@ type Product implements HasMetafieldDefinitions & HasMetafields & HasPublishedTr
   status: ProductStatus!
   """
   The Storefront GraphQL API ID of the `Product`.
-  
+
   As of the `2022-04` version release, the Storefront GraphQL API will no longer return Base64 encoded IDs to match the behavior of the Admin GraphQL API. Therefore, you can safely use the `id` field's value instead.
   """
   storefrontId: StorefrontID! @deprecated(reason: "Use `id` instead")
@@ -13219,7 +13219,7 @@ type ProductVariant implements HasMetafieldDefinitions & HasMetafields & HasPubl
      - `namespace`
      - `owner_type`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -13318,7 +13318,7 @@ type ProductVariant implements HasMetafieldDefinitions & HasMetafields & HasPubl
   sku: String
   """
   The Storefront GraphQL API ID of the `ProductVariant`.
-  
+
   As of the `2022-04` version release, the Storefront GraphQL API will no longer return Base64 encoded IDs to match the behavior of the Admin GraphQL API. Therefore, you can safely use the `id` field's value instead.
   """
   storefrontId: StorefrontID! @deprecated(reason: "Use `id` instead")
@@ -13792,7 +13792,7 @@ type QueryRoot {
     Supported filter parameters:
      - `status`
      - `type`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -13835,7 +13835,7 @@ type QueryRoot {
     Supported filter parameters:
      - `status`
      - `type`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -13912,7 +13912,7 @@ type QueryRoot {
      - `times_used`
      - `type`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -13983,7 +13983,7 @@ type QueryRoot {
      - `published_status`
      - `title`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -14071,7 +14071,7 @@ type QueryRoot {
      - `tag_not`
      - `total_spent`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -14096,7 +14096,7 @@ type QueryRoot {
     """
     Supported filter parameters:
      - `occurred_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -14160,7 +14160,7 @@ type QueryRoot {
      - `status`
      - `times_used`
      - `type`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -14194,7 +14194,7 @@ type QueryRoot {
     """
     Supported filter parameters:
      - `times_used`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -14255,7 +14255,7 @@ type QueryRoot {
      - `status`
      - `tag`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -14295,7 +14295,7 @@ type QueryRoot {
      - `media_type`
      - `original_upload_size`
      - `status`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -14349,7 +14349,7 @@ type QueryRoot {
      - `initial_value`
      - `source`
      - `status`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -14389,7 +14389,7 @@ type QueryRoot {
      - `id`
      - `sku`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -14437,7 +14437,7 @@ type QueryRoot {
      - `name`
      - `province`
      - `zip`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -14496,7 +14496,7 @@ type QueryRoot {
      - `tactic`
      - `title`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -14538,7 +14538,7 @@ type QueryRoot {
      - `description`
      - `started_at`
      - `type`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -14570,7 +14570,7 @@ type QueryRoot {
   """
   Each metafield definition has a type, which defines the type of information that it can store.
   This type is enforced across every instance of the resource that owns the metafield definition.
-  
+
   Refer to the [list of supported metafield types](https://shopify.dev/apps/metafields/types).
   """
   metafieldDefinitionTypes: [MetafieldDefinitionType!]!
@@ -14603,7 +14603,7 @@ type QueryRoot {
      - `namespace`
      - `owner_type`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -14726,7 +14726,7 @@ type QueryRoot {
      - `tag_not`
      - `test`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -14806,7 +14806,7 @@ type QueryRoot {
      - `status`
      - `times_used`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -14917,7 +14917,7 @@ type QueryRoot {
      - `title`
      - `updated_at`
      - `vendor`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -14967,7 +14967,7 @@ type QueryRoot {
      - `title`
      - `updated_at`
      - `vendor`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -15096,7 +15096,7 @@ type QueryRoot {
     """
     Supported filter parameters:
      - `name`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -15128,7 +15128,7 @@ type QueryRoot {
      - `name`
      - `created_at`
      - `app_id [CURRENT|ALL|App ID number]` default: `CURRENT`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax).
     """
     query: String
@@ -15152,7 +15152,7 @@ type QueryRoot {
   ): StaffMember
   """
   Standard metafield definitions are intended for specific, common use cases. Their namespace and keys reflect these use cases and are reserved.
-  
+
   Refer to all available [`Standard Metafield Definition Templates`](https://shopify.dev/api/admin-graphql/latest/objects/StandardMetafieldDefinitionTemplate).
   """
   standardMetafieldDefinitionTemplates(
@@ -15212,7 +15212,7 @@ type QueryRoot {
      - `point_of_sale_device_id`
      - `processed_at`
      - `test`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -15295,7 +15295,7 @@ type QueryRoot {
      - `created_at`
      - `path`
      - `target`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -15330,7 +15330,7 @@ type QueryRoot {
     Supported filter parameters:
      - `created_at`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -16181,7 +16181,7 @@ type SegmentMembershipResponse {
   memberships: [SegmentMembership!]!
 }
 """
-A segment and its corresponding saved search. 
+A segment and its corresponding saved search.
 For example, you can use `SegmentMigration` to retrieve the segment ID that corresponds to a saved search ID.
 
 """
@@ -16352,7 +16352,7 @@ type SellingPlan implements Node {
   inventoryPolicy: SellingPlanInventoryPolicy
   """
   A customer-facing description of the selling plan.
-  
+
   If your store supports multiple currencies, then don't include country-specific pricing content, such as "Buy monthly, get 10$ CAD off". This field won't be converted to reflect different currencies.
   """
   name: String!
@@ -16367,21 +16367,21 @@ type SellingPlan implements Node {
 type SellingPlanAnchor {
   """
   The cutoff day for the anchor.
-  
+
   If `type` is WEEKDAY, then the value must be between 1-7. Shopify interprets
   the days of the week according to ISO 8601, where 1 is Monday.
-  
+
   If `type` is MONTHDAY, then the value must be between 1-31.
-  
+
   If `type` is YEARDAY, then the value must be null.
   """
   cutoffDay: Int
   """
   The day of the anchor.
-  
+
   If `type` is WEEKDAY, then the value must be between 1-7. Shopify interprets
   the days of the week according to ISO 8601, where 1 is Monday.
-  
+
   If `type` is not WEEKDAY, then the value must be between 1-31.
   """
   day: Int!
@@ -16950,7 +16950,7 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
      - `published_status`
      - `title`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -17005,7 +17005,7 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
     """
     Supported filter parameters:
      - `name`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -17045,7 +17045,7 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
      - `tag_not`
      - `total_spent`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -17095,7 +17095,7 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
      - `status`
      - `tag`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -17130,7 +17130,7 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
     Supported filter parameters:
      - `assigned_location_id`
      - `status`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -17160,7 +17160,7 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
      - `id`
      - `sku`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -17196,7 +17196,7 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
      - `name`
      - `province`
      - `zip`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -17226,7 +17226,7 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
      - `description`
      - `started_at`
      - `type`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -17334,7 +17334,7 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
      - `tag_not`
      - `test`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -17382,7 +17382,7 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
      - `status`
      - `times_used`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -17498,7 +17498,7 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
      - `title`
      - `updated_at`
      - `vendor`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -17547,7 +17547,7 @@ type Shop implements HasMetafields & HasPublishedTranslations & Node {
      - `title`
      - `updated_at`
      - `vendor`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -17841,13 +17841,13 @@ type ShopifyPaymentsAccount implements Node {
   ): ShopifyPaymentsBankAccountConnection!
   """
   The statement descriptor used for charges.
-  
+
   The statement descriptor appears on a customer's credit card or bank statement when they make a purchase.
   """
   chargeStatementDescriptor: String @deprecated(reason: "Use `chargeStatementDescriptors` instead")
   """
   The statement descriptors used for charges.
-  
+
   These descriptors appear on a customer's credit card or bank statement when they make a purchase.
   """
   chargeStatementDescriptors: ShopifyPaymentsChargeStatementDescriptor
@@ -17872,7 +17872,7 @@ type ShopifyPaymentsAccount implements Node {
      - `id`
      - `initiated_at`
      - `status`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -17890,7 +17890,7 @@ type ShopifyPaymentsAccount implements Node {
   payoutSchedule: ShopifyPaymentsPayoutSchedule!
   """
   The descriptor used for payouts.
-  
+
   The descriptor appears on a merchant's bank statement when they receive a payout.
   """
   payoutStatementDescriptor: String
@@ -18213,7 +18213,7 @@ type ShopifyPaymentsPayoutSchedule {
   interval: ShopifyPaymentsPayoutInterval!
   """
   The day of the month funds will be paid out.
-  
+
   The value can be any day of the month from the 1st to the 31st.
   If the payment interval is set to monthly, this value will be used.
   Payouts scheduled between 29-31st of the month are sent on the last day of shorter months.
@@ -18221,7 +18221,7 @@ type ShopifyPaymentsPayoutSchedule {
   monthlyAnchor: Int
   """
   The day of the week funds will be paid out.
-  
+
   The value can be any weekday from Monday to Friday.
   If the payment interval is set to weekly, this value will be used.
   """
@@ -19185,11 +19185,11 @@ type SubscriptionLine {
   requiresShipping: Boolean!
   """
   The selling plan ID associated to the line.
-  
+
   Indicates which selling plan was used to create this
   contract line initially. The selling plan ID is also used to
   find the associated delivery profile.
-  
+
   The subscription contract, subscription line, or selling plan might have
   changed. As a result, the selling plan's attributes might not
   match the information on the contract.
@@ -19199,7 +19199,7 @@ type SubscriptionLine {
   The selling plan name associated to the line. This name describes
   the order line items created from this subscription line
   for both merchants and customers.
-  
+
   The value can be different from the selling plan's name, because both
   the selling plan's name and the subscription line's selling_plan_name
   attribute can be updated independently.
@@ -19254,7 +19254,7 @@ type SubscriptionMailingAddress {
   country: String
   """
   The two-letter code for the country of the address.
-  
+
   For example, US.
   """
   countryCode: CountryCode
@@ -19270,7 +19270,7 @@ type SubscriptionMailingAddress {
   province: String
   """
   The two-letter code for the region.
-  
+
   For example, ON.
   """
   provinceCode: String
@@ -20171,7 +20171,7 @@ interface HasEvents {
      - `created_at`
      - `subject_type`
      - `verb`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -20228,7 +20228,7 @@ interface HasMetafieldDefinitions {
      - `namespace`
      - `owner_type`
      - `updated_at`
-    
+
     See the detailed [search syntax](https://shopify.dev/api/usage/search-syntax)
     for more information about using filters.
     """
@@ -25029,14 +25029,14 @@ enum StagedUploadHttpMethodType {
 enum StagedUploadTargetGenerateUploadResource {
   """
   Represents an image associated with a collection.
-  
+
   Example usage: After being uploaded, this resource can be added to a collection via the
   [collectionUpdate mutation](https://shopify.dev/api/admin-graphql/latest/mutations/collectionUpdate).
   """
   COLLECTION_IMAGE
   """
   Represents any file other than HTML.
-  
+
   Example usage: After being uploaded, this resource can be added to the
   [Files page](https://shopify.com/admin/settings/files) in Shopify admin via the
   [fileCreate mutation](https://shopify.dev/api/admin-graphql/latest/mutations/fileCreate).
@@ -25044,7 +25044,7 @@ enum StagedUploadTargetGenerateUploadResource {
   FILE
   """
   Represents an image.
-  
+
   Example usage: After being uploaded, this resource can be added to a product via the
   [productCreateMedia mutation](https://shopify.dev/api/admin-graphql/latest/mutations/productCreateMedia)
   or to the [Files page](https://shopify.com/admin/settings/files) in Shopify admin via the
@@ -25053,21 +25053,21 @@ enum StagedUploadTargetGenerateUploadResource {
   IMAGE
   """
   Represents a Shopify hosted 3d model.
-  
+
   Example usage: After being uploaded, this resource can be added to a product via the
   [productCreateMedia mutation](https://shopify.dev/api/admin-graphql/latest/mutations/productCreateMedia).
   """
   MODEL_3D
   """
   Represents an image that is associated with a product.
-  
+
   Example usage: After being uploaded, this resource can be added to a product via the
   [productCreateMedia mutation](https://shopify.dev/api/admin-graphql/latest/mutations/productCreateMedia).
   """
   PRODUCT_IMAGE
   """
   Represents an image.
-  
+
   Example usage: After being uploaded, this resource can be added to the
   [Files page](https://shopify.com/admin/settings/files) in Shopify admin via the
   [fileCreate mutation](https://shopify.dev/api/admin-graphql/latest/mutations/fileCreate).
@@ -25075,7 +25075,7 @@ enum StagedUploadTargetGenerateUploadResource {
   SHOP_IMAGE
   """
   Represents a Shopify-hosted video.
-  
+
   Example usage: After being uploaded, this resource can be added to a product via the
   [productCreateMedia mutation](https://shopify.dev/api/admin-graphql/latest/mutations/productCreateMedia)
   or to the [Files page](https://shopify.com/admin/settings/files) in Shopify admin via the
@@ -25084,14 +25084,14 @@ enum StagedUploadTargetGenerateUploadResource {
   VIDEO
   """
   Represents bulk mutation variables.
-  
+
   Example usage: This resource can be used for bulk operations via the
   [bulkOperationRunMutation mutation](https://shopify.dev/api/admin-graphql/latest/mutations/bulkOperationRunMutation).
   """
   BULK_MUTATION_VARIABLES
   """
   Represents a redirect CSV file.
-  
+
   Example usage: This resource can be used for creating a
   [UrlRedirectImport](https://shopify.dev/api/admin-graphql/2022-04/objects/UrlRedirectImport)
   object for use in the
@@ -25956,7 +25956,7 @@ input CustomerInput {
   privateMetafields: [PrivateMetafieldInput!]
   """
   A list of tags to associate with the customer. Can be an array or a comma-separated list. Example values: `["tag1", "tag2", "tag3"]`, `"tag1, tag2, tag3"`
-  
+
   Updating `tags` overwrites any existing tags that were previously added to the customer. To add new tags without overwriting
   existing tags, use the [tagsAdd](https://shopify.dev/api/admin-graphql/latest/mutations/tagsadd)
   mutation.
@@ -26939,7 +26939,7 @@ input MailingAddressInput {
   lastName: String
   """
   A unique phone number for the customer.
-  
+
   Formatted using E.164 standard. For example, _+16135551111_.
   """
   phone: String
@@ -26958,11 +26958,11 @@ input MarketCreateInput {
   """
   name: String!
   """
-  Whether the market is enabled to receive visitors and sales. If  a Boolean 
+  Whether the market is enabled to receive visitors and sales. If  a Boolean
   isn't provided, then the
   market is enabled by default if all included regions have shipping rates, and disabled if
   any regions don't have shipping rates.
-  
+
   **Note**: Regions in inactive markets can't be selected on the storefront or in checkout.
   """
   enabled: Boolean
@@ -28027,10 +28027,10 @@ input SellingPlanAnchorInput {
   type: SellingPlanAnchorType
   """
   The day of the anchor.
-  
+
   If `type` is WEEKDAY, then the value must be between 1-7. Shopify interprets
   the days of the week according to ISO 8601, where 1 is Monday.
-  
+
   If `type` is not WEEKDAY, then the value must be between 1-31.
   """
   day: Int
@@ -28041,14 +28041,14 @@ input SellingPlanAnchorInput {
   month: Int
   """
   The cutoff day of the anchor.
-  
+
   If `type` is WEEKDAY, then the value must be between 1-7. Shopify interprets
   the days of the week according to ISO 8601, where 1 is Monday.
-  
+
   If `type` is MONTHDAY, then the value must be between 1-31.
-  
+
   If `type` is YEARDAY, then the value must be null.
-  
+
   This field should only be set if the cutoff field for the delivery policy is null.
   """
   cutoffDay: Int
@@ -28504,7 +28504,7 @@ input SubscriptionLineInput {
   sellingPlanId: ID
   """
   The selling plan name for the subscription line.
-  
+
   Defaults to using the selling plan's current name when not specified.
   """
   sellingPlanName: String
